@@ -23,14 +23,14 @@ rootfs_path="./rootfs"
 fwdriver_path="./core/root/lib"
 
 # Repositori dependensi ULO (Kernel, Rootfs Dasar, Driver Firmware)
-ulo_repo="armarchindo/ULO-repository"
+ulo_repo="edmicrobot/ULO-repository"
 
 # Repositori ROOTFS kustom pada rilis
-rootfs_repo="armarchindo/rootfs-openwrt"
+rootfs_repo="edmicrobot/ULO-Builder/releases"
 
 # Atur ke 'true' untuk mengaktifkan, atau 'false' untuk menonaktifkan
 DOWNLOAD_CUSTOM_KERNEL=false
-DOWNLOAD_CUSTOM_ROOTFS=false
+DOWNLOAD_CUSTOM_ROOTFS=true
 
 # 1. Repositori GitHub untuk kernel (format: pengguna/repo)
 custom_kernel_repo="armarchindo/kernel"
