@@ -29,8 +29,8 @@ ulo_repo="armarchindo/ULO-repository"
 rootfs_repo="armarchindo/rootfs-openwrt"
 
 # Atur ke 'true' untuk mengaktifkan, atau 'false' untuk menonaktifkan
-DOWNLOAD_CUSTOM_KERNEL=false
-DOWNLOAD_CUSTOM_ROOTFS=false
+DOWNLOAD_CUSTOM_KERNEL=true
+DOWNLOAD_CUSTOM_ROOTFS=true
 
 # 1. Repositori GitHub untuk kernel (format: pengguna/repo)
 # custom_kernel_repo="armarchindo/kernel"
