@@ -12,18 +12,11 @@ on:
       rootfs_choice:
         description: 'Pilih RootFS yang akan dibuild atau pilih "custom" untuk menggunakan URL'
         required: true
-        default: 'all'
+        default: 'custom'
         type: choice
         options:
           - all
-          - immortalwrt-21.02.7-vanila-armvirt-64-default-rootfs.tar.gz
-          - immortalwrt-23.05.4-vanila-armsr-armv8-generic-ext4-rootfs.img.gz
-          - openwrt-21.02.7-vanila-armvirt-64-default-rootfs.tar.gz
-          - openwrt-23.05.5-vanila-armsr-armv8-generic-ext4-rootfs.img.gz
           - OpenWrt-23.05.4-A2OS-armsr-armv8-generic-rootfs.tar.gz
-          - OpenWrt-23.05.4-ALKHANET-armsr-armv8-generic-rootfs.tar.gz
-          - OpenWrt-23.05.5-ALKHANET-armsr-armv8-generic-rootfs.tar.gz
-          - OpenWrt-23.05.5-InsomWRT-armsr-armv8-generic-rootfs.tar.gz
           - custom
 
       custom_rootfs_url:
@@ -34,12 +27,10 @@ on:
       device_choice:
         description: 'Pilih Perangkat & Kernel (pilih "all" untuk build semua)'
         required: true
-        default: 'all'
+        default: 'Allwinner: h618-orangepi-zero3 (Kernel 6.14.3)'
         type: choice
         options:
           - all
-          - 'Amlogic: s905x (Kernel 6.1.66-DBAI)'
-          - 'Amlogic: s905x (Kernel 4.9.337)'
           - 'Amlogic: s905x2 (Kernel 6.1.66-DBAI)'
           - 'Amlogic: s905x2 (Kernel 5.4.279)'
           - 'Amlogic: s905x2 (Kernel 4.9.337)'
@@ -97,10 +88,10 @@ on:
           - jamu_wifi-on_v23_dan_startup_immortal.tar.xz
           - startup_immortal.tar.xz
 
-      custom_patch_url:
-        description: 'URL untuk patch kustom tambahan (opsional)'
-        required: false
-        type: string
+      #custom_patch_url:
+        #description: 'URL untuk patch kustom tambahan (opsional)'
+        #required: false
+        #type: string
 
       rootfs_size:
         description: 'Ukuran ROOTFS, minimal 640 (756, 1024, 2048, dll)'
@@ -111,7 +102,8 @@ on:
       fwinfo:
         description: 'Informasi pemilihan versi firmware'
         required: true
-        default: 's905x default adalah untuk STB B860H V1-V2/Dens TV V2Y jadi tinggal pakai setelah burning (HG680-P, Dens TV V2X dan tipe lain yang memakai SOC AMLOGIC s905x perlu ganti DTB berlaku untuk semua STB AMLOGIC), s905x2=HG680-FJ (B860H V5, Transvision Gen2, CYBORG 001/MNC Playbox perlu ganti DTB), s905x3=X96 Air Gigabit/WECHIP V9 (X96 MAX +, HK1 BOX, H96 MAX X3, dll juga sama perlu ganti DTB), s905x4=Akari AX810/Advan AT01 (wifi on gunakan kernel 5.4.x contoh 5.4.279 lengkap driver wifinya), perangkat selain AMLOGIC hanya kompatibel sesuai judul firmware'
+        #default: 's905x default adalah untuk STB B860H V1-V2/Dens TV V2Y jadi tinggal pakai setelah burning (HG680-P, Dens TV V2X dan tipe lain yang memakai SOC AMLOGIC s905x perlu ganti DTB berlaku untuk semua STB AMLOGIC), s905x2=HG680-FJ (B860H V5, Transvision Gen2, CYBORG 001/MNC Playbox perlu ganti DTB), s905x3=X96 Air Gigabit/WECHIP V9 (X96 MAX +, HK1 BOX, H96 MAX X3, dll juga sama perlu ganti DTB), s905x4=Akari AX810/Advan AT01 (wifi on gunakan kernel 5.4.x contoh 5.4.279 lengkap driver wifinya), perangkat selain AMLOGIC hanya kompatibel sesuai judul firmware'
+        default: 's905x'
         type: string
 
 jobs:
@@ -429,12 +421,9 @@ jobs:
           file_glob: true
           overwrite: true
           body: |
-            ## Rilis OpenWrt untuk Berbagai Perangkat SBC dan STB
             ### Informasi firmware OpenWrt
             - Firmware ini dibuild menggunakan Github Actions dengan RootFS: **${{ matrix.tag_suffix }}**
             - Ukuran ROOTFS: ${{ github.event.inputs.rootfs_size }}
             - Patch diterapkan: **${{ steps.patch_info.outputs.patch_text }}**
             - Informasi pemilihan versi firmware: ${{ github.event.inputs.fwinfo }}
-            - Facebook FP: https://www.facebook.com/armarchindo/
-            - Blog: https://dbai-team.com
-            - Pertanyaan dan diskusi hanya di grup Discord DBAI: https://discord.gg/BXNzaJFTPP
+            
