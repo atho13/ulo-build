@@ -23,7 +23,8 @@ rootfs_path="./rootfs"
 fwdriver_path="./core/root/lib"
 
 # Repositori dependensi ULO (Kernel, Rootfs Dasar, Driver Firmware)
-ulo_repo="armarchindo/ULO-repository"
+# ulo_repo="armarchindo/ULO-repository"
+ulo_repo="atho12/ULO-repository"
 
 # Repositori ROOTFS kustom pada rilis
 rootfs_repo="armarchindo/rootfs-openwrt"
