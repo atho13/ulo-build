@@ -7,7 +7,8 @@ on:
         description: 'Aktifkan unduhan KERNEL & ROOTFS kustom? (Centang untuk Ya)'
         required: true
         type: boolean
-        default: false
+        #default: false
+        default: true
 
       rootfs_choice:
         description: 'Pilih RootFS yang akan dibuild atau pilih "custom" untuk menggunakan URL'
