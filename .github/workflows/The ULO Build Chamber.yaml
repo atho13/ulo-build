@@ -15,8 +15,8 @@ on:
         default: 'custom'
         type: choice
         options:
-          - all
-          - OpenWrt-23.05.4-A2OS-armsr-armv8-generic-rootfs.tar.gz
+          #- all
+          #- OpenWrt-23.05.4-A2OS-armsr-armv8-generic-rootfs.tar.gz
           - custom
 
       custom_rootfs_url:
