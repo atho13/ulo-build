@@ -18,7 +18,7 @@ on:
         options:
           #- all
           #- OpenWrt-23.05.4-A2OS-armsr-armv8-generic-rootfs.tar.gz
-          -  "openwrt-allwinner-generic-rootfs.tar.
+          -  openwrt-allwinner-generic-rootfs.tar
           - custom
 
       custom_rootfs_url:
