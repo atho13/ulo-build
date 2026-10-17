@@ -148,6 +148,8 @@ jobs:
               TAG_SUFFIX="OpenWrt-23.05.4-ALKHANET"
             elif [[ "${{ github.event.inputs.rootfs_choice }}" == "OpenWrt-23.05.5-ALKHANET-armsr-armv8-generic-rootfs.tar.gz" ]]; then
               TAG_SUFFIX="OpenWrt-23.05.5-ALKHANET"
+            elif [[ "${{ github.event.inputs.rootfs_choice }}" == "openwrt-allwinner-generic-rootfs.tar.gz" ]]; then
+              TAG_SUFFIX="openwrt-allwinner-generic"
             else
               TAG_SUFFIX="OpenWrt-23.05.5-InsomWRT"
             fi
